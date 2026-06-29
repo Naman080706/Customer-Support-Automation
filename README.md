@@ -1,10 +1,6 @@
 # AI-Powered Customer Support Automation System (LangGraph)
 
-**Assignment 2** — An automated customer-support system for *ABC Technologies* (a
-SaaS company) built with **LangGraph**. It accepts customer queries, classifies
-the issue, routes it to the right department agent, grounds answers in company
-documents (RAG), remembers past conversations (SQLite), escalates high-risk
-requests to a human supervisor, and produces a final validated response.
+An automated customer-support system for a SaaS company built with **LangGraph**. It accepts customer queries, classifies the issue, routes it to the right department agent, grounds answers in company documents (RAG), remembers past conversations (SQLite), escalates high-risk requests to a human supervisor, and produces a final validated response.
 
 > **Runs out of the box with no API key.** The system ships with a deterministic,
 > rule-based reasoning engine grounded in real RAG retrieval, so it is fully
@@ -132,13 +128,13 @@ START → load_memory → classify_intent → route_query ─┬→ sales/techni
                                                      └→ memory_recall ───────────────────────────────────────────────────────────→ supervisor_review → persist → END
 ```
 
-- **RAG (Task 6):** each department agent retrieves the top relevant chunks from
+- **RAG :** each department agent retrieves the top relevant chunks from
   the four knowledge-base documents via a TF-IDF cosine-similarity index (NumPy,
   no external API) and grounds its answer in them.
-- **Memory (Task 7):** every interaction is written to `memory.db`. Memory-recall
+- **Memory:** every interaction is written to `memory.db`. Memory-recall
   queries are answered directly from stored history.
-- **Human-in-the-loop (Task 8):** the `check_approval` node flags high-risk
+- **Human-in-the-loop:** the `check_approval` node flags high-risk
   categories; `human_approval` collects the supervisor decision before the
   response is finalized.
-- **Supervisor (Task 9):** validates and improves the draft (adds greeting,
+- **Supervisor:** validates and improves the draft (adds greeting,
   approval note, professional closing) to produce the final response.
