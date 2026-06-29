@@ -1,0 +1,17 @@
+# Core LangGraph / LangChain
+langgraph>=1.0.0
+langchain>=1.0.0
+langchain-core>=1.0.0
+
+# Optional LLM providers (system runs offline without these,
+# but will use a real LLM automatically if an API key is provided)
+langchain-google-genai>=2.0.0   # Gemini  (set GOOGLE_API_KEY)
+openai>=1.0.0                    # OpenAI  (set OPENAI_API_KEY)
+
+# Utilities
+python-dotenv>=1.0.0
+numpy>=1.24.0
+
+# Deliverable generation (diagram + screenshots PDF)
+matplotlib>=3.7.0
+fpdf2>=2.7.0
